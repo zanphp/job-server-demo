@@ -2,10 +2,10 @@
 
 return [
     'host'          => '0.0.0.0',
-    'port'          => '8050',
+    'port'          => '8080',
     'config' => [
         'daemonize' => 0,
-        'worker_num' => 2,
+        'worker_num' => 4,
         'max_request' => 100000,
         'reactor_num' => 1,
         'open_length_check' => 1,

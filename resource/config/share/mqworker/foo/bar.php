@@ -5,7 +5,7 @@ return [
         "uri" => "job/task/consume",
         "topic" => "zan_mqworker_test",
         "channel" => "ch1",
-        "timeout" => 500, // 测试超时
+        "timeout" => 3000,
         "coroutine_num" => 1,
         // "method" => "GET",
         // "header" => [ "x-foo: bar", ],
