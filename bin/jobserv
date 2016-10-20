@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+putenv("ZAN_JOB_MODE=cron,mqworker,cli");
+//putenv("ZAN_JOB_MODE=mqworker,cli");
+//putenv("ZAN_JOB_MODE=cron,cli");
+
+
+/* @var $app \Zan\Framework\Foundation\Application */
+$app = require_once __DIR__.'/../init/app.php';
+
+$server = $app->createHttpServer();
+// $server = $app->createTcpServer();
+
+$server->start();
