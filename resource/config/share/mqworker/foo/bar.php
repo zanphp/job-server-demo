@@ -5,10 +5,17 @@ return [
         "uri" => "job/task/consume",
         "topic" => "zan_mqworker_test",
         "channel" => "ch1",
-         "coroutine_num" => 2,
-        "timeout" => 3000,
+        "timeout" => 500, // 测试超时
+        "coroutine_num" => 1,
         // "method" => "GET",
         // "header" => [ "x-foo: bar", ],
         // "body" => "",
+    ],
+    "mq_consume2" => [
+        "uri" => "job/task/consume",
+        "topic" => "zan_mqworker_test",
+        "channel" => "ch1",
+        "timeout" => 3000,
+        "coroutine_num" => 1,
     ],
 ];

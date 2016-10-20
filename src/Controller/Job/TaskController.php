@@ -1,10 +1,10 @@
 <?php
 
-namespace  Zan\Framework\Components\JobServer\Controller\Job;
+namespace  Zan\Framework\Components\JobServer\Demo\Controller\Job;
 
 
 use Com\Youzan\Material\General\Service\TokenService;
-use Zan\Framework\Components\JobServer\Controller\Job\Dao\AttachmentDao;
+use Zan\Framework\Components\JobServer\Demo\Controller\Job\Dao\AttachmentDao;
 use Zan\Framework\Components\JobServer\JobProcessor\JobController;
 use Zan\Framework\Store\Facade\Cache;
 use Zan\Framework\Utilities\Types\Time;
@@ -31,9 +31,11 @@ class TaskController extends JobController
     public function product()
     {
         try {
-//             yield $this->testRedis();
-//             yield $this->testMysql();
-//             yield $this->testInvokeService();
+             yield $this->testRedis();
+             yield $this->testMysql();
+             yield $this->testInvokeService();
+
+            yield taskSleep(1000);
 
             $ret = (yield $this->submit(static::TEST_TOPIC, ["hello"]));
             if ($ret["result"] !== "ok") {
@@ -47,14 +49,13 @@ class TaskController extends JobController
         }
     }
 
-    // mq worker 消费
+    // mq worker: 消费mq任务
     public function consume()
     {
         try {
-//            yield $this->testRedis();
-//            yield $this->testMysql();
-//            yield $this->testInvokeService();
-
+            yield $this->testRedis();
+            yield $this->testMysql();
+            yield $this->testInvokeService();
 
             $job = $this->getJob();
             // var_dump($job->jobKey);
@@ -70,6 +71,8 @@ class TaskController extends JobController
         }
     }
 
+
+    
     public function timer()
     {
         yield taskSleep(100);

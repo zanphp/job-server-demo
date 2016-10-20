@@ -5,7 +5,8 @@ return [
         "require"   => ["kdt_id", "attachment_ids"],
         "limit"     => [],
         "sql"       => <<<'SQL'
-SELECT /*兼容SqlParser判断sql类型*/
+        
+SELECT /*兼容SqlParser判断sql类型*/ 
 	attachment_id,
 	mp_id,
 	media_id,

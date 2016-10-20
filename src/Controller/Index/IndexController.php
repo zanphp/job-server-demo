@@ -1,6 +1,6 @@
 <?php
 
-namespace Zan\Framework\Components\JobServer\Controller\Index;
+namespace Zan\Framework\Components\JobServer\Demo\Controller\Index;
 
 
 use Zan\Framework\Foundation\Domain\HttpController;

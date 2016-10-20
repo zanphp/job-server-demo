@@ -1,6 +1,33 @@
 <?php
 
 return [
+    "push_mq1" => [
+        "uri" => "job/task/product",
+        "cron"  => "* * * * * *",
+        "timeout" => 500, // 测试超时
+    ],
+
+
+    "push_mq2" => [
+        "uri" => "job/task/product",
+        "cron"  => "*/2 * * * * *",
+        "timeout" => 2000,
+    ],
+    "push_mq3" => [
+        "uri" => "job/task/product",
+        "cron"  => "*/3 * * * * *",
+        "timeout" => 3000,
+    ],
+    "push_mq4" => [
+        "uri" => "job/task/product",
+        "cron"  => "*/4 * * * * *",
+        "timeout" => 3000,
+    ],
+    "push_mq5" => [
+        "uri" => "job/task/product",
+        "cron"  => "*/5 * * * * *",
+        "timeout" => 3000,
+    ],
 //    "test_timeout" => [
 //        "uri" => "job/task/testTimeout",
 //        "cron"  => "* * * * * *",
@@ -9,8 +36,6 @@ return [
 //        "uri" => "job/task/testException",
 //        "cron"  => "* * * * * *",
 //    ],
-
-
 //    "test_tick_1" => [
 //        "uri" => "job/task/timer",
 //        "cron"  => "*/1 * * * * *",
@@ -27,37 +52,6 @@ return [
 //        "cron"  => "*/1 * * * * *",
 //        "strict" => false,
 //    ],
-
-    
-    "push_mq1" => [
-        "uri" => "job/task/product",
-        "cron"  => "* * * * * *",
-        "timeout" => 3000,
-    ],
-    "push_mq2" => [
-        "uri" => "job/task/product",
-        "cron"  => "* * * * * *",
-        "timeout" => 3000,
-    ],
-    "push_mq3" => [
-        "uri" => "job/task/product",
-        "cron"  => "* * * * * *",
-        "timeout" => 3000,
-    ],
-    "push_mq4" => [
-        "uri" => "job/task/product",
-        "cron"  => "* * * * * *",
-        "timeout" => 3000,
-    ],
-    "push_mq5" => [
-        "uri" => "job/task/product",
-        "cron"  => "* * * * * *",
-        "timeout" => 3000,
-    ],
-
-
-
-//
 //    [
 //        "uri" => "job/task/product",
 //        "cron"  => "* * * * * *",

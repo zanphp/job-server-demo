@@ -1,6 +1,6 @@
 <?php
 
-namespace  Zan\Framework\Components\JobServer\Controller\Job\Dao;
+namespace  Zan\Framework\Components\JobServer\Demo\Controller\Job\Dao;
 
 
 use Zan\Framework\Store\Facade\Db;
@@ -28,8 +28,7 @@ class AttachmentDao
             ]
         ]);
     }
-    
-    
+
     /**
      * @param int $kdtId
      * @param int $attachmentId

@@ -16,7 +16,7 @@ return [
         'package_max_length' => 2000000
     ],
     'monitor' =>[
-        'max_request'   => 100000,           //
+        'max_request'   => 100,           //
         'max_live_time' => 3600000,         //30m
         'check_interval'=> 1000,           //1s
         'memory_limit'  => 1.5 * 1024 * 1024 * 1024,       //1.50G
