@@ -8,22 +8,22 @@ return [
     ],
     "push_mq2" => [
         "uri" => "job/task/product",
-        "cron"  => "*/2 * * * * *",
+        "cron"  => "* * * * * *",
         "timeout" => 3000,
     ],
     "push_mq3" => [
         "uri" => "job/task/product",
-        "cron"  => "*/3 * * * * *",
+        "cron"  => "* * * * * *",
         "timeout" => 3000,
     ],
     "push_mq4" => [
         "uri" => "job/task/product",
-        "cron"  => "*/4 * * * * *",
+        "cron"  => "* * * * * *",
         "timeout" => 3000,
     ],
     "push_mq5" => [
         "uri" => "job/task/product",
-        "cron"  => "*/5 * * * * *",
+        "cron"  => "*/2 * * * * *",
         "timeout" => 3000,
     ],
 //    "test_timeout" => [
