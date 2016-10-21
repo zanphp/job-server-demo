@@ -10,9 +10,9 @@ return [
         'port' => '3306',
         'pool'  => [
             'maximum-connection-count' => 50,
-            'minimum-connection-count' => 1,
+            'minimum-connection-count' => 2,
             'heartbeat-time' => 35000,
-            'init-connection'=> 1,
+            'init-connection'=> 2,
         ],
     ],
     "cluster" => [
@@ -24,9 +24,9 @@ return [
         'port' => '3007',
         'pool'  => [
             'maximum-connection-count' => 50,
-            'minimum-connection-count' => 1,
+            'minimum-connection-count' => 2,
             'heartbeat-time' => 35000,
-            'init-connection'=> 1,
+            'init-connection'=> 2,
         ],
     ],
 ];

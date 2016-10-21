@@ -12,9 +12,9 @@ return [
         'port' => 6379,
         'pool'  => [
             'maximum-connection-count' => 50,
-            'minimum-connection-count' => 1,
+            'minimum-connection-count' => 2,
             'keeping-sleep-time' => '10',
-            'init-connection'=> 1,
+            'init-connection'=> 2,
         ],
     ],
 ];

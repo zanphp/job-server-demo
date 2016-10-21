@@ -9,20 +9,6 @@ use Zan\Framework\Components\JobServer\JobProcessor\JobController;
 use Zan\Framework\Store\Facade\Cache;
 use Zan\Framework\Utilities\Types\Time;
 
-// nsq
-
-// http://nsq-dev.s.qima-inc.com:4161/create_topic?topic=zan_mqworker_test
-// curl -X POST "http://nsq-dev.s.qima-inc.com:4161/topic/create?topic=zan_mqworker_test"
-// curl -X POST "http://nsq-dev.s.qima-inc.com:4161/channel/create?topic=zan_mqworker_test&channel=ch1"
-
-// curl -X POST "http://127.0.0.1:4151/topic/create?topic=zan_mqworker_test"
-
-// post 需要header支持
-// -H "Content-type: application/x-www-form-urlencoded" -X POST --data "foo=bar" job/task/product?name=xiaofeng
-
-// json 需要header支持
-// -H "Content-type: Content-type: application/json" -X POST --data '{"foo": "bar"}' job/task/product?name=xiaofeng
-
 class TaskController extends JobController
 {
     const TEST_TOPIC = "zan_mqworker_test";
@@ -72,7 +58,7 @@ class TaskController extends JobController
     }
 
 
-    
+
     public function timer()
     {
         yield taskSleep(100);
@@ -96,19 +82,19 @@ class TaskController extends JobController
         $v = "hello";
         yield Cache::set("demo.test.test", 1, $v);
         $ret = (yield Cache::get("demo.test.test", 1));
-        assert($v === $ret);
+//        assert($v === $ret);
     }
     
     protected function testInvokeService()
     {
         $token = (yield TokenService::getInstance()->getToken(1, "test"));
-        assert(strlen($token) > 0);
+//        assert(strlen($token) > 0);
     }
 
     protected function testMysql()
     {
         $ret = (yield AttachmentDao::getInstance()->getListByKdtIdAttachmentIds(1, range(1, 100)));
-        assert($ret);
+//        assert($ret);
     }
 
     protected function testLog()
