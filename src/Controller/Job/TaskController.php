@@ -6,6 +6,8 @@ namespace  Zan\Framework\Components\JobServer\Demo\Controller\Job;
 use Com\Youzan\Material\General\Service\TokenService;
 use Zan\Framework\Components\JobServer\Demo\Controller\Job\Dao\AttachmentDao;
 use Zan\Framework\Components\JobServer\JobProcessor\JobController;
+use Zan\Framework\Sdk\Queue\NSQ\Msg;
+use Zan\Framework\Sdk\Queue\NSQ\Queue;
 use Zan\Framework\Store\Facade\Cache;
 use Zan\Framework\Utilities\Types\Time;
 
@@ -17,11 +19,11 @@ class TaskController extends JobController
     public function product()
     {
         try {
-             yield $this->testRedis();
-             yield $this->testMysql();
-             yield $this->testInvokeService();
+//             yield $this->testRedis();
+//             yield $this->testMysql();
+//             yield $this->testInvokeService();
 
-            yield taskSleep(1000);
+            yield taskSleep(100);
 
             $ret = (yield $this->submit(static::TEST_TOPIC, ["hello"]));
             if ($ret["result"] !== "ok") {
@@ -39,13 +41,13 @@ class TaskController extends JobController
     public function consume()
     {
         try {
-            yield $this->testRedis();
-            yield $this->testMysql();
-            yield $this->testInvokeService();
+//            yield $this->testRedis();
+//            yield $this->testMysql();
+//            yield $this->testInvokeService();
 
             $job = $this->getJob();
             // var_dump($job->jobKey);
-            yield taskSleep(1000);
+            yield taskSleep(50);
 
             // throw new \Exception("test........");
             yield $this->jobDone();
@@ -139,5 +141,21 @@ class TaskController extends JobController
         unset($serv["__JOB_MGR__"]);
         echo "SERVER:\n";
         var_dump($serv);
+    }
+
+
+    public function submitTask()
+    {
+        try {
+            $n = $this->request->get("n", 1000);
+            $queue = new Queue();
+            while($n--) {
+                yield $queue->publish(static::TEST_TOPIC, Msg::fromClient(json_encode(["hello"])));
+            }
+
+            yield $this->jobDone();
+        } catch (\Exception $e) {
+            yield $this->jobError($e);
+        }
     }
 }
