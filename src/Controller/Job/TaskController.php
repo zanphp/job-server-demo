@@ -47,7 +47,7 @@ class TaskController extends JobController
 
             $job = $this->getJob();
             // var_dump($job->jobKey);
-            yield taskSleep(50);
+            yield taskSleep(1000);
 
             // throw new \Exception("test........");
             yield $this->jobDone();
@@ -149,7 +149,10 @@ class TaskController extends JobController
         try {
             $n = $this->request->get("n", 1000);
             $queue = new Queue();
+            $loading = ["\\", "-", "/", "|"];
             while($n--) {
+                $c = $loading[$n % 4];
+                $this->replaceOut("$c==============$c\nPublishing...$n\n$c==============$c");
                 yield $queue->publish(static::TEST_TOPIC, Msg::fromClient(json_encode(["hello"])));
             }
 
@@ -158,4 +161,16 @@ class TaskController extends JobController
             yield $this->jobError($e);
         }
     }
+
+    private function replaceOut($str)
+    {
+        $numNewLines = substr_count($str, "\n");
+        echo chr(27) . "[0G"; // Set cursor to first column
+        echo $str;
+        echo chr(27) . "[" . $numNewLines ."A"; // Set cursor up x lines
+    }
+
+    // http://10.9.6.49:4171/topics/zan_mqworker_test
+    // sudo nohup /data/users/chuxiaofeng/job-server-demo/bin/jobserv >/data/users/chuxiaofeng/job-server-demo/log 2>&1 &
+    // sudo php /data/users/chuxiaofeng/job-server-console/bin/jobserv job/task/submitTask?n=1000
 }
