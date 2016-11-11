@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
+use Zan\Framework\Components\JobServer\JobMode;
+
 putenv("ZAN_JOB_MODE=cron,mqworker,cli");
 //putenv("ZAN_JOB_MODE=mqworker,cli");
 //putenv("ZAN_JOB_MODE=cron,cli");
@@ -8,6 +10,9 @@ putenv("ZAN_JOB_MODE=cron,mqworker,cli");
 
 /* @var $app \Zan\Framework\Foundation\Application */
 $app = require_once __DIR__.'/../init/app.php';
+
+// 开启server随机端口
+JobMode::randomListenPort();
 
 $server = $app->createHttpServer();
 // $server = $app->createTcpServer();
