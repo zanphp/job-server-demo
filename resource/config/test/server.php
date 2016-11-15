@@ -5,9 +5,9 @@ return [
     'port'          => '8080',
     'config' => [
         'daemonize' => 0,
-        'worker_num' => 1,
+        'worker_num' => 2,
         'max_request' => 100000,
-        'reactor_num' => 1,
+        'reactor_num' => 2,
         'open_length_check' => 1,
         'package_length_type' => 'N',
         'package_length_offset' => 0,
