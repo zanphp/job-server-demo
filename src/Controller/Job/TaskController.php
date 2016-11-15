@@ -23,12 +23,12 @@ class TaskController extends JobController
 //             yield $this->testMysql();
 //             yield $this->testInvokeService();
 
-            yield taskSleep(100);
-
-            $ret = (yield $this->submit(static::TEST_TOPIC, ["hello"]));
+            // $ret = (yield $this->submit(static::TEST_TOPIC, "hello"));
+            $ret = (yield $this->submit(static::TEST_TOPIC, ["key" => "hello"]));
             if ($ret["result"] !== "ok") {
                 echo $ret["error"];
             }
+            yield taskSleep(100);
 
             yield $this->jobDone();
         } catch (\Exception $ex) {
@@ -47,7 +47,8 @@ class TaskController extends JobController
 
             $job = $this->getJob();
             // var_dump($job->jobKey);
-            yield taskSleep(1000);
+            var_dump($job->body);
+            // yield taskSleep(1000);
 
             // throw new \Exception("test........");
             yield $this->jobDone();
