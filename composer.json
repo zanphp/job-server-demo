@@ -15,7 +15,7 @@
         },
         {
             "type": "git",
-            "url": "git@gitlab.qima-inc.com:chuxiaofeng/nsq-client.git"
+            "url": "git@gitlab.qima-inc.com:php-lib/nsq-client.git"
         },
         {
             "type": "git",
@@ -68,7 +68,7 @@
     "require": {
         "zanphp/zan": "dev-master",
         "zanphp/nova":"dev-master",
-        "php-lib/job-server": "dev-hotfix/switch_nsq_client",
+        "php-lib/job-server": "dev-master",
         "php-lib/nsq-client": "dev-master",
         "nova-service/material": "dev-master",
         "packaged/thrift": "0.9.2.1"

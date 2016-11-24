@@ -79,9 +79,6 @@ return [
     "lookupd_poll_interval" => 30 * 1000,// 60 * 1000, //60s TODO 通过lookupd更新nsqd节点周期
     "lookupd_poll_jitter" => 0.3,
 
-    // 是否开启backoff, 发生requeue或处理异常触发backoff
-    "enable_backoff" => false, // TODO
-
     "max_backoff_duration" => 10 * 60 * 1000, // 10min
 
     "message_backoff" => [

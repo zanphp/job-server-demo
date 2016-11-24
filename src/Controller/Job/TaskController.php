@@ -15,6 +15,18 @@ class TaskController extends JobController
 {
     const TEST_TOPIC = "zan_mqworker_test";
 
+    public function cacheTest()
+    {
+        $ret = (yield Cache::mGet("demo.test.mgetset", [["hello", 1], ["world", 2]]));
+        var_dump($ret);
+
+        $ret = (yield Cache::mSet("demo.test.mgetset", [["hello", 1], ["world", 2]], ["value1", "value2"]));
+        var_dump($ret);
+
+        $ret = (yield Cache::mGet("demo.test.mgetset", [["hello", 1], ["world", 2]]));
+        var_dump($ret);
+    }
+
     // 通过cron提交任务
     public function product()
     {

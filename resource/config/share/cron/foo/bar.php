@@ -1,26 +1,26 @@
 <?php
 
 return [
-//    "push_mq1" => [
-//        "uri" => "job/task/product",
-//        "cron"  => "* * * * * *",
-//        "timeout" => 3000,
-//    ],
-//    "push_mq2" => [
-//        "uri" => "job/task/product",
-//        "cron"  => "*/2 * * * * *",
-//        "timeout" => 3000,
-//    ],
-//    "push_mq3" => [
-//        "uri" => "job/task/product",
-//        "cron"  => "*/3 * * * * *",
-//        "timeout" => 3000,
-//    ],
-//    "push_mq4" => [
-//        "uri" => "job/task/product",
-//        "cron"  => "*/4 * * * * *",
-//        "timeout" => 3000,
-//    ],
+    "push_mq1" => [
+        "uri" => "job/task/product",
+        "cron"  => "* * * * * *",
+        "timeout" => 3000,
+    ],
+    "push_mq2" => [
+        "uri" => "job/task/product",
+        "cron"  => "*/2 * * * * *",
+        "timeout" => 3000,
+    ],
+    "push_mq3" => [
+        "uri" => "job/task/product",
+        "cron"  => "*/3 * * * * *",
+        "timeout" => 3000,
+    ],
+    "push_mq4" => [
+        "uri" => "job/task/product",
+        "cron"  => "*/4 * * * * *",
+        "timeout" => 3000,
+    ],
 
 
 
