@@ -15,18 +15,6 @@ class TaskController extends JobController
 {
     const TEST_TOPIC = "zan_mqworker_test";
 
-    public function cacheTest()
-    {
-        $ret = (yield Cache::mGet("demo.test.mgetset", [["hello", 1], ["world", 2]]));
-        var_dump($ret);
-
-        $ret = (yield Cache::mSet("demo.test.mgetset", [["hello", 1], ["world", 2]], ["value1", "value2"]));
-        var_dump($ret);
-
-        $ret = (yield Cache::mGet("demo.test.mgetset", [["hello", 1], ["world", 2]]));
-        var_dump($ret);
-    }
-
     // 通过cron提交任务
     public function product()
     {
@@ -58,9 +46,9 @@ class TaskController extends JobController
 //            yield $this->testInvokeService();
 
             $job = $this->getJob();
-            // var_dump($job->jobKey);
-            var_dump($job->body);
-            // yield taskSleep(1000);
+//            var_dump($job->jobKey);
+//            var_dump($job->body);
+//            yield taskSleep(1000);
 
             // throw new \Exception("test........");
             yield $this->jobDone();
@@ -72,7 +60,18 @@ class TaskController extends JobController
         }
     }
 
+    public function cacheTest()
+    {
+        $ret = (yield Cache::mGet("demo.test.mgetset", [["hello", 1], ["world", 2]]));
+        var_dump($ret);
 
+        $ret = (yield Cache::mSet("demo.test.mgetset", [["hello", 1], ["world", 2]], ["value1", "value2"]));
+        var_dump($ret);
+
+        $ret = (yield Cache::mGet("demo.test.mgetset", [["hello", 1], ["world", 2]]));
+        var_dump($ret);
+        yield $this->jobDone();
+    }
 
     public function timer()
     {
@@ -182,6 +181,7 @@ class TaskController extends JobController
         echo $str;
         echo chr(27) . "[" . $numNewLines ."A"; // Set cursor up x lines
     }
+
 
     // http://10.9.6.49:4171/topics/zan_mqworker_test
     // sudo nohup /data/users/chuxiaofeng/job-server-demo/bin/jobserv >/data/users/chuxiaofeng/job-server-demo/log 2>&1 &
