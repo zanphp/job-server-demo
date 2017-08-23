@@ -1,15 +1,9 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: Demon
- * Date: 16/6/22
- * Time: 下午3:10
- */
 
 return [
     'trace' => [
         'engine'=> 'tcp',
-        'host' => '10.9.37.103',
+        'host' => '127.0.0.1',
         'port' => '2280',
         'timeout' => 5000,
         'hasRecv' => false,
@@ -22,9 +16,8 @@ return [
         ],
         'pool'  => [
             'maximum-connection-count' => 50,
-            'minimum-connection-count' => 1,
-            'keeping-sleep-time' => '10',
-            'init-connection'=> 1,
+            'minimum-connection-count' => 0,
+            'init-connection'=> 0,
         ],
     ],
 ];

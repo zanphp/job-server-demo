@@ -3,9 +3,6 @@
 // 只有lookup项必填, 其他全部选填
 // 时间单位: ms
 return [
-    'lookupd' => 'http:nsq-dev.s.qima-inc.com:4161',
-//    'lookupd' => 'http:127.0.0.1:4161',
-
 
     // ["必填"]lookup 节点地址
     "lookup" => [

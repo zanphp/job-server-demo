@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: xiaoniu
- * Date: 16/3/30
- * Time: 下午4:59
- */
+
 return [
     // 指定连接
     "mysql.default_write" => [

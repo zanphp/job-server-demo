@@ -3,6 +3,7 @@
 
 use Zan\Framework\Components\JobServer\JobMode;
 
+putenv("ZANPHP_RUN_MODE=test");
 putenv("ZAN_JOB_MODE=cron,mqworker,cli");
 //putenv("ZAN_JOB_MODE=mqworker,cli");
 //putenv("ZAN_JOB_MODE=cron,cli");
