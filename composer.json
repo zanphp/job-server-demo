@@ -10,7 +10,6 @@
         "zanphp/zan": "dev-master",
         "zanphp/nsq-client": "dev-master",
         "php-lib/job-server": "dev-master",
-        "nova-service/material": "dev-master",
         "packaged/thrift": "0.9.2.1"
     },
     "autoload": {
